@@ -40,7 +40,7 @@ st.sidebar.write('Com gasto energético basal de ', round(kcal), 'kcal')
 st.header("Cálculo de doses de drogas")
 
 # drogas 
-st.warning('Selecione a droga escolhida')
+st.warning('Selecione a droga escolhida, não esqueça de ajustar o peso no meuno lateral!')
 
 # sedação
 st.subheader("Sedação")
