@@ -72,13 +72,36 @@ if midazolan:
 
     mida_mlhatual = st.number_input('Qual ml/h atual?', 0, 200, 10)
     mida_doseatual = ((mida_mlhatual * mida_dosesol) / peso) * 1000
-    st.write('A dose atual corresponde a ', round(mida_doseatual), 'mcg/kg/h')
-    st.write('Conforme peso, dose mínima é', round(mida_mlhmin), 'ml/h, e a dose máxima é', round(mida_mlhmax), 'ml/h')
+    st.write('A dose atual corresponde a ', round(mida_doseatual, 2), 'mcg/kg/h')
+    st.write('Conforme peso, dose mínima é', round(mida_mlhmin, 1), 'ml/h, e a dose máxima é', round(mida_mlhmax, 1), 'ml/h')
 
-    st.info('midazolam é um adroga === ajustes')
+    st.info('É um hipnótico da classe dos benzodiazepínicos, que atua inibindo o GABA. Risco C na gestação, liberado o uso na amamentação. Metabolismo hepático, eliminação renal. Pode causar hipotensão, tendo uma meia vida de 1:30 a 2:30 horas.')
 
 #propofol
+propofol = st.checkbox("Propofol", 0, 0, 'Clique para mais informações')
+if propofol:
+    with st.beta_expander('Ajustar diluições') :
+        prop_doseamp = st.number_input('Qual a concentração por ml da ampola? (mg/ml)', 0, 100, 10)
+        prop_dosesol = st.number_input('Qual a concentração final da solução? (ml/ml)', 0, 100, 10)
+        prop_volsol = st.number_input('Qual o volume da medicação? (ml)', 0, 200, 80)
+        prop_voltotal = st.number_input('Qual volume final da solução? (ml)', 0, 500, 80)
+        prop_dosemax = st.number_input('Qual a dose máxima? (mg/kg/h)', 0, 1000, 5)
+        prop_dosemin = st.number_input('Qual a dose mínima? (mcg/kg/h)', 0.0, 100.0, 0.5)
+
+    prop_mlhmax = (prop_dosemax * peso) / (prop_dosesol) # ml/h máximo
+    prop_mlhmin = (prop_dosemin * peso) / (prop_dosesol) # ml/h mínimo
+
+
+    prop_mlhatual = st.number_input('Qual ml/h atual?', 0, 201, 10)
+    prop_doseatual = ((prop_mlhatual * prop_dosesol) / peso)
+    st.write('A dose atual corresponde a ', round(prop_doseatual, 2), 'mg/kg/h')
+    st.write('Conforme peso, dose mínima é', round(prop_mlhmin, 1), 'ml/h, e a dose máxima é', round(prop_mlhmax, 1), 'ml/h')
+
+    st.info('add texto.')
+
 #fentanil
 #cetamina
 #precedex
 #morfina
+
+st.info('Logo teremos novas drogas')
