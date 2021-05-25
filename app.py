@@ -76,6 +76,7 @@ with st.beta_container():
         st.write('MIN', round(mida_mlhmin, 1), 'ml/h  MAX', round(mida_mlhmax, 1), 'ml/h')
 
         st.info('É um hipnótico da classe dos benzodiazepínicos, que atua inibindo o GABA. Risco C na gestação, liberado o uso na amamentação. Metabolismo hepático, eliminação renal. Pode causar hipotensão, tendo uma meia vida de 1:30 a 2:30 horas.')
+        st.markdown("---")  # separador
 
     #propofol
     propofol = st.checkbox("Propofol")
@@ -98,6 +99,7 @@ with st.beta_container():
         st.write('MIN', round(prop_mlhmin, 1), 'ml/h  MAX', round(prop_mlhmax, 1), 'ml/h')
 
         st.info('add texto.')
+        st.markdown("---")  # separador
 
     #fentanil
     fentanil = st.checkbox("Fentanil")
@@ -120,6 +122,7 @@ with st.beta_container():
         st.write('MIN', round(fenta_mlhmin, 1), 'ml/h  MAX', round(fenta_mlhmax, 1), 'ml/h')
 
         st.info('add texto.')
+        st.markdown("---")  # separador
 
     #cetamina
     cetamina = st.checkbox("Cetamina")
@@ -142,6 +145,7 @@ with st.beta_container():
         st.write('MIN', round(ceta_mlhmin, 1), 'ml/h  MAX', round(ceta_mlhmax, 1), 'ml/h')
 
         st.info('add texto.')
+        st.markdown("---")  # separador
 
     #precedex
     precedex = st.checkbox("Precedex")
@@ -164,12 +168,55 @@ with st.beta_container():
         st.write('MIN', round(prec_mlhmin, 1), 'ml/h  MAX', round(prec_mlhmax, 1), 'ml/h')
 
         st.info('add texto.')
+        st.markdown("---")  # separador
+
+
 
 st.subheader("Bloqueadores neuro-muscular")
 with st.beta_container():
     #cisatracúrio
     cisatracurio = st.checkbox("Cisatracúrio")
+    if cisatracurio:
+        with st.beta_expander('Padrão Cisatracúrio 25ml + Sf 75ml - Clique para modificar'):
+            cisa_doseamp = st.number_input('Qual a concentração por ml da ampola? (mcg/ml)', 0.0, 100.0, 2.0)
+            cisa_dosesol = st.number_input('Qual a concentração final da solução? (mcg/ml)', 0.0, 100.0, 0.5)
+            cisa_volsol = st.number_input('Qual o volume da medicação? (ml)', 0.0, 100.0, 25.0)
+            cisa_voltotal = st.number_input('Qual volume final da solução? (ml)', 0.0, 1000.0, 100.0)
+            cisa_dosemax = st.number_input('Qual a dose máxima? (mcg/min)', 0.0, 100.0, 4.0)
+            cisa_dosemin = st.number_input('Qual a dose mínima? (mcg/min)', 0.0, 100.0, 1.0)
+
+        cisa_mlhmax = ((cisa_dosemax * peso * 60) / 1000) / (cisa_dosesol)  # ml/h máximo
+        cisa_mlhmin = ((cisa_dosemin * peso * 60) / 1000) / (cisa_dosesol)  # ml/h mínimo
+
+        cisa_mlhatual = st.number_input('Ml/h atual?', 0, 201, 10)
+        cisa_doseatual = (((cisa_mlhatual * cisa_dosesol) / 60) / peso) * 1000
+        st.write('Dose atual', round(cisa_doseatual, 2), 'mcg/kg/h')
+        st.write('MIN', round(cisa_mlhmin, 1), 'ml/h  MAX', round(cisa_mlhmax, 1), 'ml/h')
+
+        st.info('add texto.')
+        st.markdown("---")  # separador
+
     #rocurônio
+    rocuronio = st.checkbox("Rocurônio")
+    if cisatracurio:
+        with st.beta_expander('Padrão Rocurônio 25ml + Sf 225ml - Clique para modificar'):
+            rocu_doseamp = st.number_input('Qual a concentração por ml da ampola? (mcg/ml)', 0.0, 100.0, 10.0)
+            rocu_dosesol = st.number_input('Qual a concentração final da solução? (mcg/ml)', 0.0, 100.0, 1.0)
+            rocu_volsol = st.number_input('Qual o volume da medicação? (ml)', 0.0, 100.0, 25.0)
+            rocu_voltotal = st.number_input('Qual volume final da solução? (ml)', 0.0, 1000.0, 250.0)
+            rocu_dosemax = st.number_input('Qual a dose máxima? (mcg/min)', 0.0, 100.0, 0.6)
+            rocu_dosemin = st.number_input('Qual a dose mínima? (mcg/min)', 0.0, 100.0, 0.3)
+
+        rocu_mlhmax = (rocu_dosemax * peso) / rocu_dosesol  # ml/h máximo
+        rocu_mlhmin = (rocu_dosemin * peso) / rocu_dosesol  # ml/h mínimo
+
+        rocu_mlhatual = st.number_input('Ml/h atual?', 0, 201, 10)
+        rocu_doseatual = (rocu_mlhatual * rocu_dosesol) / peso
+        st.write('Dose atual', round(rocu_doseatual, 2), 'mcg/kg/h')
+        st.write('MIN', round(rocu_mlhmin, 1), 'ml/h  MAX', round(rocu_mlhmax, 1), 'ml/h')
+
+        st.info('add texto.')
+        st.markdown("---")  # separador
     #atracúrio
     #pancurônio
 
