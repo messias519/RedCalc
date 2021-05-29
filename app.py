@@ -45,9 +45,9 @@ with st.beta_container():
 
 #calculadora de doses
 with st.beta_container():
-    st.markdown("<h2>Calculadora de doses</h2>", unsafe_allow_html=True)
+    st.markdown("<h2>Sua calculadora de doses</h2>", unsafe_allow_html=True)
 
-    st.markdown('<small> Novas drogas em breve... </small>', unsafe_allow_html=True)
+    st.markdown('<small> Envie seu feedback para contato@redcalc.com.br </small>', unsafe_allow_html=True)
 
     # drogas
     st.markdown("---") #separador
@@ -351,51 +351,51 @@ with st.beta_container():
             st.info('add texto.')
             st.markdown("---")
 
-    #adrenalina
-    adrenalina = st.checkbox("Adrenalina")
-    if adrenalina:
-        with st.beta_expander('Padrão Adrenalina 16ml + Sf 236ml - Clique para modificar'):
-            adr_doseamp = st.number_input('Qual a concentração por ml da ampola? (mcg/ml)', 0.0, 103.1, 1.0)
-            adr_dosesol = st.number_input('Qual a concentração final da solução? (mcg/ml)', 0.0, 301.0, 64.0)
-            adr_volsol = st.number_input('Qual o volume da medicação? (ml)', 0.0, 103.0, 16.0)
-            adr_voltotal = st.number_input('Qual volume final da solução? (ml)', 0.0, 997.0, 250.0)
-            adr_dosemax = st.number_input('Qual a dose máxima? (mcg/kg/min)', 0.0, 102.1, 10.0)
-            adr_dosemin = st.number_input('Qual a dose mínima? (mcg/kg/min)', 0.0, 103.0, 2.0)
+        #adrenalina
+        adrenalina = st.checkbox("Adrenalina")
+        if adrenalina:
+            with st.beta_expander('Padrão Adrenalina 16ml + Sf 236ml - Clique para modificar'):
+                adr_doseamp = st.number_input('Qual a concentração por ml da ampola? (mcg/ml)', 0.0, 103.1, 1.0)
+                adr_dosesol = st.number_input('Qual a concentração final da solução? (mcg/ml)', 0.0, 301.0, 64.0)
+                adr_volsol = st.number_input('Qual o volume da medicação? (ml)', 0.0, 103.0, 16.0)
+                adr_voltotal = st.number_input('Qual volume final da solução? (ml)', 0.0, 997.0, 250.0)
+                adr_dosemax = st.number_input('Qual a dose máxima? (mcg/kg/min)', 0.0, 102.1, 10.0)
+                adr_dosemin = st.number_input('Qual a dose mínima? (mcg/kg/min)', 0.0, 103.0, 2.0)
 
-        adr_mlhmax = (adr_dosemax * 60) / adr_dosesol  # ml/h máximo
-        adr_mlhmin = (adr_dosemin * 60) / adr_dosesol  # ml/h mínimo
+            adr_mlhmax = (adr_dosemax * 60) / adr_dosesol  # ml/h máximo
+            adr_mlhmin = (adr_dosemin * 60) / adr_dosesol  # ml/h mínimo
 
-        adr_mlhatual = st.number_input('Ml/h atual?', 0, 217, 10)
-        adr_doseatual = (adr_mlhatual * adr_dosesol) / 60
-        st.write('Dose atual', round(adr_doseatual, 2), 'mcg/kg/min')
-        st.write('MIN', round(adr_mlhmin, 1), 'ml/h  MAX', round(adr_mlhmax, 1), 'ml/h')
+            adr_mlhatual = st.number_input('Ml/h atual?', 0, 217, 10)
+            adr_doseatual = (adr_mlhatual * adr_dosesol) / 60
+            st.write('Dose atual', round(adr_doseatual, 2), 'mcg/kg/min')
+            st.write('MIN', round(adr_mlhmin, 1), 'ml/h  MAX', round(adr_mlhmax, 1), 'ml/h')
 
-        st.info('add texto.')
-        st.markdown("---")
+            st.info('add texto.')
+            st.markdown("---")
 
-    #dobutamina
-    dobutamina = st.checkbox("Dobutamina")
-    if dobutamina:
-        with st.beta_expander('Padrão Dobutamina 20ml + Sf 230ml - Clique para modificar'):
-            dobu_doseamp = st.number_input('Qual a concentração por ml da ampola? (mcg/ml)', 0.0, 103.1, 12.5)
-            dobu_dosesol = st.number_input('Qual a concentração final da solução? (mcg/ml)', 0.0, 301.0, 1.0)
-            dobu_volsol = st.number_input('Qual o volume da medicação? (ml)', 0.0, 103.0, 20.0)
-            dobu_voltotal = st.number_input('Qual volume final da solução? (ml)', 0.0, 996.0, 250.0)
-            dobu_dosemax = st.number_input('Qual a dose máxima? (mcg/kg/min)', 0.0, 102.1, 20.0)
-            dobu_dosemin = st.number_input('Qual a dose mínima? (mcg/kg/min)', 0.0, 103.0, 2.5)
+        #dobutamina
+        dobutamina = st.checkbox("Dobutamina")
+        if dobutamina:
+            with st.beta_expander('Padrão Dobutamina 20ml + Sf 230ml - Clique para modificar'):
+                dobu_doseamp = st.number_input('Qual a concentração por ml da ampola? (mcg/ml)', 0.0, 103.1, 12.5)
+                dobu_dosesol = st.number_input('Qual a concentração final da solução? (mcg/ml)', 0.0, 301.0, 1.0)
+                dobu_volsol = st.number_input('Qual o volume da medicação? (ml)', 0.0, 103.0, 20.0)
+                dobu_voltotal = st.number_input('Qual volume final da solução? (ml)', 0.0, 996.0, 250.0)
+                dobu_dosemax = st.number_input('Qual a dose máxima? (mcg/kg/min)', 0.0, 102.1, 20.0)
+                dobu_dosemin = st.number_input('Qual a dose mínima? (mcg/kg/min)', 0.0, 103.0, 2.5)
 
-        dobu_mlhmax = ((dobu_dosemax * peso) / (dobu_dosesol * 1000)) * 60  # ml/h máximo
-        dobu_mlhmin = ((dobu_dosemin * peso) / (dobu_dosesol * 1000)) * 60# ml/h mínimo
+            dobu_mlhmax = ((dobu_dosemax * peso) / (dobu_dosesol * 1000)) * 60  # ml/h máximo
+            dobu_mlhmin = ((dobu_dosemin * peso) / (dobu_dosesol * 1000)) * 60# ml/h mínimo
 
-        dobu_mlhatual = st.number_input('Ml/h atual?', 0, 215, 10)
-        dobu_doseatual = ((((dobu_mlhatual * dobu_dosesol) / 60) / peso) * 1000)
-        st.write('Dose atual', round(dobu_doseatual, 2), 'mcg/kg/min')
-        st.write('MIN', round(dobu_mlhmin, 1), 'ml/h  MAX', round(dobu_mlhmax, 1), 'ml/h')
+            dobu_mlhatual = st.number_input('Ml/h atual?', 0, 215, 10)
+            dobu_doseatual = ((((dobu_mlhatual * dobu_dosesol) / 60) / peso) * 1000)
+            st.write('Dose atual', round(dobu_doseatual, 2), 'mcg/kg/min')
+            st.write('MIN', round(dobu_mlhmin, 1), 'ml/h  MAX', round(dobu_mlhmax, 1), 'ml/h')
 
-        st.info('add texto.')
-        st.markdown("---")
-    #dopamina
+            st.info('add texto.')
+            st.markdown("---")
+        #dopamina
 
-    # quase acabando
+
 
 
