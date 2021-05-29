@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat May 22 20:22:21 2021
-
-@author: André
+@author: Messias6
 """
 #imports
 import streamlit as st
